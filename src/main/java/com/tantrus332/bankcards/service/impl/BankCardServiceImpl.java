@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.tantrus332.bankcards.dto.BankCardDetailsDto;
 import com.tantrus332.bankcards.dto.BankCardDto;
 import com.tantrus332.bankcards.dto.BankCardUpdateDto;
+import com.tantrus332.bankcards.dto.TransferResponseDto;
 import com.tantrus332.bankcards.entity.BankCard;
 import com.tantrus332.bankcards.entity.User;
 import com.tantrus332.bankcards.exception.BusinessLogicException;
@@ -168,7 +169,7 @@ public class BankCardServiceImpl implements BankCardService {
 
     @Override
     @Transactional
-    public void transfer(String fromCardNumber, String toCardNumber, BigDecimal amount) {
+    public TransferResponseDto transfer(String fromCardNumber, String toCardNumber, BigDecimal amount) {
         BankCard fromCard = findMyCardByCardNumber(fromCardNumber);
         BankCard toCard = findMyCardByCardNumber(toCardNumber);
 
@@ -184,6 +185,8 @@ public class BankCardServiceImpl implements BankCardService {
 
         bankCardRepository.save(fromCard);
         bankCardRepository.save(toCard);
+
+        return new TransferResponseDto(fromCard, toCard);
     }
 
     @Override

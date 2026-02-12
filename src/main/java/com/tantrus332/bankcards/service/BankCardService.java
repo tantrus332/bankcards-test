@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import com.tantrus332.bankcards.dto.BankCardDetailsDto;
 import com.tantrus332.bankcards.dto.BankCardDto;
 import com.tantrus332.bankcards.dto.BankCardUpdateDto;
+import com.tantrus332.bankcards.dto.TransferResponseDto;
 
 public interface BankCardService {
     public BankCardDto get(Long id);
@@ -25,6 +26,6 @@ public interface BankCardService {
     public BankCardDto requestBlock(Long cardId);
     public BankCardDto confirmBlock(Long cardId);
 
-    public void transfer(String fromCardNumber, String toCardNumber, BigDecimal amount);
+    public TransferResponseDto transfer(String fromCardNumber, String toCardNumber, BigDecimal amount);
     public BankCardDetailsDto getFullDetails(Long cardId);
 }

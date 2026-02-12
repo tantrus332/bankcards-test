@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tantrus332.bankcards.dto.BankCardDetailsDto;
 import com.tantrus332.bankcards.dto.BankCardDto;
 import com.tantrus332.bankcards.dto.TransferRequestDto;
+import com.tantrus332.bankcards.dto.TransferResponseDto;
 import com.tantrus332.bankcards.service.BankCardService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -44,8 +45,8 @@ public class BankcardController {
 
     @PutMapping("/transfer")
     @Operation(summary = "Перевод с одной на другую карту")
-    public void transfer(@Validated @RequestBody TransferRequestDto requestDto) {
-        bankCardService.transfer(
+    public TransferResponseDto transfer(@Validated @RequestBody TransferRequestDto requestDto) {
+        return bankCardService.transfer(
             requestDto.getFromCardNumber(), 
             requestDto.getToCardNumber(), 
             requestDto.getAmount()

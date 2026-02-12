@@ -46,6 +46,10 @@ paths:
       responses:
         "200":
           description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/TransferResponseDto"
   /api/v1/admin/users/{id}:
     get:
       tags:
@@ -397,6 +401,13 @@ components:
           minimum: 0.01
       required:
       - amount
+    TransferResponseDto:
+      type: object
+      properties:
+        fromCard:
+          $ref: "#/components/schemas/BankCardDto"
+        toCard:
+          $ref: "#/components/schemas/BankCardDto"
     UserUpdateRequestDto:
       type: object
       properties:
