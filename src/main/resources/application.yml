@@ -1,0 +1,23 @@
+application:
+  jwt:
+    secret-key: ${APP_JWT_SECRET}
+    expiration: ${APP_JWT_EXPIRATION}
+  security:
+    encryption-key: ${APP_ENCRYPTION_KEY}
+
+spring:
+  application:
+    name: bankcards
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/bankdb}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+springdoc:
+  swagger-ui:
+    operations-sorter: alpha
+    tags-sorter: alpha
