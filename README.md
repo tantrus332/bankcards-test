@@ -39,7 +39,7 @@ docker-compose up --build
 
 ```
 
-После завершения сборки API будет доступно по адресу: `http://localhost:8080`
+После завершения сборки API будет доступно по адресу: `http://localhost:8080/api/v1`
 
 
 
@@ -48,4 +48,4 @@ docker-compose up --build
 ## API Документация
 
 После запуска документация Swagger/OpenAPI доступна здесь:
-👉 [http://localhost:8080/swagger-ui.html](https://www.google.com/search?q=http://localhost:8080/swagger-ui.html)
+👉 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
